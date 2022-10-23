@@ -3,34 +3,24 @@
   <div class="close-btn"><a href="#">チャットを終了する</a></div>
 </div>
 
-<div class="main_chat_message">
-  <div class="messages">
-    <div class="post-info">
-      <div class="post-user">ユーザー1</div>
-      <div class="post-date">2022-10-19(Wed) 12:43:30</div>
-    </div>
-      <div class="post-text">おはよう</div>
-  </div>
-  
-  <div class="messages">
-    <div class="post-info">
-      <div class="post-user">User2</div>
-      <div class="post-date">2022-10-19(Wed) 12:43:30</div>
-    </div>
-      <div class="post-text">Hi</div>
-  </div>
-
+<div class="main_chat_messages">
+  <%= render partial: 'message', collection: @messages %>
 </div>
+<br>
 
-<%= form_with model: [@room, @message], class: 'form', local: true do |f| %>
-  <div class="form-input">
-    <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
-    <label class="form-image">
-      <span class="image-file">画像</span>
-      <%= f.file_field :image, class: 'hidden' %>
-    </label>
+<div class="main_chat_form">
+
+  <div class="input-body">
+    <%= form_with model: [@room, @message], class: 'input-body', local: true do |f| %>
+        <%= f.text_field :content, class: 'input-message', placeholder: 'type a message' %>
+
+        <label class="input-image">
+        <span class="form-image">画像</span>
+        <%= f.file_field :image, class: 'hidden' %>
+        </label>
+
+      <%= f.submit '送信', class: 'send-btn' %>
+
+    <% end %>
   </div>
-  <%= f.submit '送信', class: 'form-submit' %>
-<% end %>
-
 </div>
