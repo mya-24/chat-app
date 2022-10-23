@@ -8,7 +8,7 @@
 <div class="side_bar_room">
   <div class="room-list">
   <% current_user.rooms.each do |r| %>
-    <div class="room-name"><a href="#"><%= r.name %></a></div>
+    <div class="room-name"><%= link_to r.name, room_messages_path(r) %></a></div>
   <% end %>
   </div>
 </div>
