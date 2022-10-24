@@ -110,8 +110,8 @@
     }
 
 /*　メイン画面　真ん中　*/
-  .main_chat_message{
-    height: calc(100vh - 190px);
+  .main_chat_messages{
+    height: calc(100vh - 208px);
     background-color: #FAFAFA;
     padding: 46px 40px 0;
     overflow: scroll;
